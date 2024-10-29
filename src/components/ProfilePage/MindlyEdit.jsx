@@ -21,6 +21,10 @@ import LidtGladUdenFarve from "../../assets/LidtGladUdenFarve.png";
 import HeltGladUdenFarve from "../../assets/HeltGladUdenFarve.png";
 import AddPhoto from "../../assets/AddPhoto.png";
 
+// Streger (Lines)
+import VenstreStreg from "../../assets/LeftIllustration.png";
+import HoejreStreg from "../../assets/RightIllustration.png";
+
 // Mood images configuration
 const moodImages = [
   {
@@ -162,6 +166,22 @@ const MindlyEdit = () => {
   return (
     <>
       <TopNav />
+      <div className="edit-mindly-overskrift">
+        <h1>Edit Mindly</h1>
+        <p>
+          Forgot to add something? <br />
+          No worries, jot down your thoughts.
+        </p>
+      </div>
+      <div className="MindlyPost-streg-box">
+        <div className="MindlyEdit-Hoejre">
+          <img src={HoejreStreg} alt="Right illustration" loading="lazy" />
+        </div>
+
+        <div className="MindlyEdit-Venstre">
+          <img src={VenstreStreg} alt="Left illustration" loading="lazy" />
+        </div>
+      </div>
       {isOpen && (
         <motion.div
           className="mindly-full-view-edit"

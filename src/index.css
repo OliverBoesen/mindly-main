@@ -1057,6 +1057,26 @@ input {
   margin-left: 2.5rem;
 }
 
+.MindlyPost-ButtonContainer {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.MindlyPost-SaveButton {
+  background-color: var(--clr-white);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.MindlyPost-DeleteButton {
+  background-color: var(--clr-red);
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: var(--clr-white);
+}
+
 /*Mindly Post Slut*/
 
 /* Home CSS */
@@ -1270,7 +1290,32 @@ input {
 }
 
 .mindly-full-view-edit {
-  margin-top: 13rem;
+  margin-top: -8rem;
+}
+
+.edit-mindly-overskrift h1 {
+  font-size: var(--font-h3);
+  margin-top: 7rem;
+  text-align: center;
+}
+
+.edit-mindly-overskrift p {
+  text-align: center;
+  font-size: var(--font-h6);
+}
+
+.MindlyEdit-Hoejre img {
+  width: 200px;
+  margin-top: -13.3rem;
+  height: 200px;
+}
+
+.MindlyEdit-Venstre img {
+  width: 70px;
+  height: 350px;
+  margin-top: -11.3rem;
+  margin-left: 7.9rem;
+  transform: rotate(1deg);
 }
 
 .mindly-full-view h2 {
@@ -1475,6 +1520,10 @@ input {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+.delete-text p {
+  font-size: 0.9rem;
 }
 
 /* --------------------------------- SETTINGS - PERSONAL ----------------------------------------------------------------------
