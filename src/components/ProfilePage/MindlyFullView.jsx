@@ -12,6 +12,10 @@ import HeltGladMedFarve from "../../assets/HeltGladMedFarve.png";
 import EditIcon from "../../assets/editicon.png";
 import Trash from "../../assets/TrashCan.png";
 
+// Streger (Lines)
+import VenstreStreg from "../../assets/LeftIllustration.png";
+import HoejreStreg from "../../assets/RightIllustration.png";
+
 // Component imports
 import TopNav from "../../components/Navigation/TopNav";
 
@@ -65,6 +69,17 @@ const MindlyFullView = () => {
   return (
     <AnimatePresence>
       <TopNav />
+
+      <div className="MindlyPost-streg-box">
+        <div className="MindlyFull-Hoejre">
+          <img src={HoejreStreg} alt="Right illustration" loading="lazy" />
+        </div>
+
+        <div className="MindlyFull-Venstre">
+          <img src={VenstreStreg} alt="Left illustration" loading="lazy" />
+        </div>
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
