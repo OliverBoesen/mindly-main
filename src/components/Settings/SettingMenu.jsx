@@ -65,7 +65,11 @@ export default function SettingMenu() {
         </NavLink>
       </div>
       <div>
-        <button className="cta_red cta_signout" type="button" onClick={openModal}>
+        <button
+          className="cta_red cta_signout"
+          type="button"
+          onClick={openModal}
+        >
           Logout
         </button>
       </div>
@@ -80,8 +84,12 @@ export default function SettingMenu() {
           <h2>Logout</h2>
           <p>Are you sure you want to logout?</p>
           <div className="settings-modal-buttons">
-            <button className="cta_red cancel-button" onClick={closeModal}>Cancel</button>
-            <button className="cta_red" onClick={handleLogout}>Logout</button>
+            <button className="cta_red cancel-button" onClick={closeModal}>
+              Cancel
+            </button>
+            <button className="cta_red" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
       </Modal>
