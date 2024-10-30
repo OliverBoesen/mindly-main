@@ -146,6 +146,11 @@ const MindlyEdit = () => {
     }
   };
 
+  // Handlers
+  const handleRemoveImage = () => {
+    setEditedImage(null); // Nulstil billedet til null
+  };
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -244,13 +249,23 @@ const MindlyEdit = () => {
                 style={{ display: "none" }}
                 id="image-upload"
               />
-              <label htmlFor="image-upload">
-                <img
-                  src={editedImage || AddPhoto}
-                  alt={editedImage ? "Selected photo" : "Add photo"}
-                  loading="lazy"
-                />
-              </label>
+              <div className="image-upload-container">
+                <label htmlFor="image-upload">
+                  <img
+                    src={editedImage || AddPhoto}
+                    alt={editedImage ? "Selected photo" : "Add photo"}
+                    loading="lazy"
+                  />
+                </label>
+                {editedImage && (
+                  <span
+                    className="change-image-text"
+                    onClick={handleRemoveImage}
+                  >
+                    Delete image
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Save and Delete buttons */}

@@ -957,7 +957,7 @@ input {
 .MindlyPost-Subject {
   display: block;
   text-align: center;
-  margin-top: -6rem;
+  margin-top: -8.5rem;
 }
 
 .MindlyPost-Subject h3,
@@ -1283,6 +1283,19 @@ input {
 }
 
 /* Mindly Full View */
+
+.image-upload-container {
+  display: flex;
+  align-items: center;
+}
+
+.change-image-text {
+  margin-top: 3rem;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: var(--font-thin);
+  text-decoration: underline; /* Tilføj for at fremhæve */
+}
 
 .mindly-full-view {
   position: relative;

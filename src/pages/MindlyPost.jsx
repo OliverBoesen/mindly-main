@@ -47,19 +47,42 @@ const MindlyPost = () => {
   const db = getDatabase();
 
   // Smileys configuration
-  const moodImages = useMemo(() => [
-    { name: "HeltSur", withColor: HeltSurMedFarve, withoutColor: HeltSurUdenFarve },
-    { name: "LidtSur", withColor: LidtSurMedFarve, withoutColor: LidtSurUdenFarve },
-    { name: "MellemSur", withColor: MellemSurMedFarve, withoutColor: MellemSurUdenFarve },
-    { name: "LidtGlad", withColor: LidtGladMedFarve, withoutColor: LidtGladUdenFarve },
-    { name: "HeltGlad", withColor: HeltGladMedFarve, withoutColor: HeltGladUdenFarve },
-  ], []);
+  const moodImages = useMemo(
+    () => [
+      {
+        name: "HeltSur",
+        withColor: HeltSurMedFarve,
+        withoutColor: HeltSurUdenFarve,
+      },
+      {
+        name: "LidtSur",
+        withColor: LidtSurMedFarve,
+        withoutColor: LidtSurUdenFarve,
+      },
+      {
+        name: "MellemSur",
+        withColor: MellemSurMedFarve,
+        withoutColor: MellemSurUdenFarve,
+      },
+      {
+        name: "LidtGlad",
+        withColor: LidtGladMedFarve,
+        withoutColor: LidtGladUdenFarve,
+      },
+      {
+        name: "HeltGlad",
+        withColor: HeltGladMedFarve,
+        withoutColor: HeltGladUdenFarve,
+      },
+    ],
+    []
+  );
 
   // Functions
   const handleCreateMindly = async () => {
     if (!auth.currentUser) {
-      console.error('User not authenticated');
-      alert('You must be logged in to create a Mindly.');
+      console.error("User not authenticated");
+      alert("You must be logged in to create a Mindly.");
       return;
     }
 
@@ -77,8 +100,8 @@ const MindlyPost = () => {
       await push(mindlysRef, newMindly);
       navigate("/profile/mindlyspage");
     } catch (error) {
-      console.error('Failed to save mindly:', error);
-      alert('Failed to save your mindly. Please try again.');
+      console.error("Failed to save mindly:", error);
+      alert("Failed to save your mindly. Please try again.");
     }
   };
 
@@ -128,15 +151,16 @@ const MindlyPost = () => {
 
       <div className="MindlyPost-UnderOverskrift">
         <p>
-          Write down your grateful thoughts and save it to your Mindly&apos;s to keep
+          Write down your grateful thoughts and save it to your Mindly&apos;s to
+          keep
         </p>
       </div>
 
       <div className="MindlyPost-Subject">
         <h3>Subject</h3>
-        <input 
-          type="text" 
-          placeholder="Write a subject line" 
+        <input
+          type="text"
+          placeholder="Write a subject line"
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
         />
@@ -144,7 +168,7 @@ const MindlyPost = () => {
 
       <div className="MindlyPost-Text">
         <h3>Text</h3>
-        <textarea 
+        <textarea
           placeholder="Use this space to write your personal Mindly"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -154,9 +178,7 @@ const MindlyPost = () => {
       <div className="mindly-post-smiley-box">
         <h3>Select your emotion</h3>
         <div className="MindlyPost-Smiley-Container">
-          <div className="MindlyPost-Smiley">
-            {renderMoodImages}
-          </div>
+          <div className="MindlyPost-Smiley">{renderMoodImages}</div>
         </div>
       </div>
 
@@ -167,7 +189,7 @@ const MindlyPost = () => {
           accept="image/*"
           onChange={handleImageUpload}
           ref={fileInputRef}
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
         />
         <img
           src={selectedImage || AddPhoto}

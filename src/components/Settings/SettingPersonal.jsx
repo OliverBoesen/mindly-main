@@ -14,7 +14,7 @@ export default function SettingMenu() {
     if (user) {
       setEmail(user.email);
       // Get username from displayName if set, otherwise use email
-      setUsername(user.displayName || user.email.split('@')[0]);
+      setUsername(user.displayName || user.email.split("@")[0]);
     }
   }, []);
 

@@ -11,12 +11,10 @@ import LidtGladMedFarve from "../../assets/LidtGladMedFarve.png";
 import HeltGladMedFarve from "../../assets/HeltGladMedFarve.png";
 import EditIcon from "../../assets/editicon.png";
 import Trash from "../../assets/TrashCan.png";
-
-// Streger (Lines)
 import VenstreStreg from "../../assets/LeftIllustration.png";
 import HoejreStreg from "../../assets/RightIllustration.png";
+import FallbackImage from "../../assets/FallbackImage.png"; // Your fallback image
 
-// Component imports
 import TopNav from "../../components/Navigation/TopNav";
 
 const MindlyFullView = () => {
@@ -33,7 +31,7 @@ const MindlyFullView = () => {
       LidtGlad: LidtGladMedFarve,
       HeltGlad: HeltGladMedFarve,
     }),
-    [] // Dependencies array
+    []
   );
 
   useEffect(() => {
@@ -93,7 +91,6 @@ const MindlyFullView = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
-          {/* Overskrift */}
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -102,20 +99,17 @@ const MindlyFullView = () => {
             {mindly.subject}
           </motion.h2>
 
-          {/*Indsatte billeder */}
-          {mindly.image && (
-            <motion.img
-              src={mindly.image}
-              alt="Mindly image"
-              className="mindly-image"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.3 }}
-            />
-          )}
+          {/* Image with fallback */}
+          <motion.img
+            src={mindly.image || FallbackImage} // Use fallback image if mindly.image is null
+            alt="Mindly image"
+            className="mindly-image"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.3 }}
+          />
 
           <div className="mindly-dato-tekst-edit-container">
-            {/* Dato */}
             <motion.p
               className="mindly-date"
               initial={{ opacity: 0 }}
@@ -128,7 +122,6 @@ const MindlyFullView = () => {
               })}
             </motion.p>
 
-            {/* Tekst på mindly */}
             <motion.p
               className="mindly-description"
               initial={{ opacity: 0 }}
@@ -136,8 +129,6 @@ const MindlyFullView = () => {
               transition={{ delay: 0.5 }}
             >
               {mindly.text}
-
-              {/* Smileys */}
               <motion.div
                 className="mindly-mood"
                 initial={{ opacity: 0 }}
@@ -147,8 +138,7 @@ const MindlyFullView = () => {
                 <div className="mood-container">
                   {mindly.mood && moodImages[mindly.mood] && (
                     <>
-                      <span className="mood-label">Mood:</span>{" "}
-                      {/* Add the label here */}
+                      <span className="mood-label">Mood:</span>
                       <img
                         src={moodImages[mindly.mood]}
                         alt={`Mood: ${mindly.mood}`}
@@ -166,8 +156,8 @@ const MindlyFullView = () => {
             </motion.p>
 
             <div className="mindly-edit-blyant">
-              <NavLink to="/mindly/${entry.id}/edit">
-                <img src={EditIcon} alt="" />
+              <NavLink to={`/mindly/${id}/edit`}>
+                <img src={EditIcon} alt="Edit icon" />
               </NavLink>
             </div>
           </div>
